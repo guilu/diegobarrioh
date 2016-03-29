@@ -1,0 +1,8 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <h2>{{ 'registration.check_email'|trans({'%email%': email}) }}</h2>
+    <a href="{{ path('homepage') }}" class="btn btn-primary">{{ 'registration.volver_a_inicio'|trans }}</a>
+{% endblock fos_user_content %}

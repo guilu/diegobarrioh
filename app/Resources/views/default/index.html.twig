@@ -1,0 +1,66 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div id="welcome">
+                    <h1><span>Welcome!</span></h1>
+                </div>
+                <div id="next">
+                    <h2><i class="fa fa-globe"></i> Front End Technologies</h2>
+                    <ul class="list-unstyled">
+                        <li>Bootstrap v3.3.5</li>
+                        <li>Font Awesome 4.4.0</li>
+                        <li>jquery v2.1.4</li>
+                        <li>bower 1.5.2</li>
+                        <li>grunt v0.4.5</li>
+                    </ul>
+                    <h2><i class="fa fa-server"></i> Back End Technologies</h2>
+                    <ul class="list-unstyled">
+                        <li>PHP (Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }})</li>
+                        <li>Mysql 5.6.25,</li>
+                        <li>vagrant 1.7.4</li>
+                        <li>phpunit 4.5.1</li>
+                        <li>behat 3.0.15</li>
+                        <li>jenkins 1.621</li>
+                    </ul>
+
+                    <p>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                          Demo Modal
+                        </button>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2>Implementación de FOSUserBundle:</h2>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <h2>Identificado como <a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a> <a class="btn btn-default" href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out fa-fw"></i>{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></h2>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}" class="btn btn-default btn-lg">{{ 'homepage.acceder'|trans({}, 'AppTranslations') }}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            Modal Body
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

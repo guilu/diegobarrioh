@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>{% block title %}{{ 'wellcome'|trans }}{% endblock %}</title>
+        <!-- en prod: se usará unicamente app.min.css -->
+        <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="alert alert-{{ type }} alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        {% block body %}{% endblock %}
+        <!-- en prod: se usará unicamente app.min.js -->
+        <script src="{{ asset('js/plugins/plugins.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,18 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/user/css/fileinput.min.css') }}"/>
+{% endblock %}
+
+{% block fos_user_content %}
+    {% include "FOSUserBundle:Profile:edit_content.html.twig" %}
+{% endblock fos_user_content %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/user/js/fileinput.min.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#fos_user_profile_form_imagen").fileinput();
+        });
+    </script>
+{% endblock %}

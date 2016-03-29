@@ -1,0 +1,46 @@
+parameters:
+    deletion.email.template: UserBundle:User:deletion.email.html.twig
+
+services:
+    user.profile.form.type:
+        class: UserBundle\Form\Type\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: user_profile}
+
+    user.registration.form.type:
+        class: UserBundle\Form\Type\RegistrationFormType
+        tags:
+            - { name: form.type, alias: user_registration}
+
+    user.password_resetting:
+        class: UserBundle\EventListener\EditProfileListener
+        arguments: [@router]
+        tags:
+            - { name: kernel.event_subscriber }
+
+    twig.asset_exists_extension:
+        class: UserBundle\Twig\AssetExistsExtension
+        arguments: [@kernel]
+        tags:
+            - { name: twig.extension }
+
+    app.mailer:
+        class: UserBundle\Mailer\Mailer
+        public: false
+        arguments:
+            - @mailer
+            - @router
+            - @twig
+            -
+                template:
+                    deletion: %deletion.email.template%
+                from_email:
+                    deletion: %fos_user.resetting.email.from_email%
+
+    app.delete_user_listener:
+        class: UserBundle\EventListener\DeleteUserListener
+        arguments: [@app.mailer, @router, @session]
+        tags:
+            - { name: 'kernel.event_subscriber' }
+

@@ -1,0 +1,34 @@
+default:
+    formatters:
+        - name: pretty
+    extensions:
+        Behat\Symfony2Extension:
+            kernel:
+                env: test
+                debug: true
+        Behat\MinkExtension:
+            base_url: http://diegobarrioh.dev
+            #base_url: http://localhost:8000
+            selenium2:
+                #require chrome-driver
+                browser: chrome
+            sessions:
+                symfony2:
+                    symfony2: ~
+        emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
+            name: html
+            renderer: Twig
+            file_name: index
+            print_args: true
+            print_outp: true
+            loop_break: true
+        jarnaiz\JUnitFormatter\JUnitFormatterExtension:
+            filename: behat.xml
+            outputDir: ./build/logs
+    suites:
+        app_suite:
+            type: symfony_bundle
+            bundle: 'AppBundle'
+            contexts:
+                - AppBundle\Features\Context\WebContext:
+                    kernel: '@kernel'

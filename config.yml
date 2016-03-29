@@ -1,0 +1,298 @@
+testwork:
+    argument:             []
+    autoload:
+
+        # Default:
+        :                    %paths.base%/features/bootstrap
+    suites:
+
+        # Prototype
+        name:
+
+            # Enables/disables suite
+            enabled:              true
+
+            # Specifies suite type
+            type:                 null
+
+            # Specifies suite extra settings
+            settings:
+
+                # Prototype
+                name:                 ~
+    formatters:
+
+        # Prototype
+        name:                 []
+    exceptions:
+
+        # Output verbosity
+        verbosity:            1 # Example: 1, 2, 3, 4
+    gherkin:
+
+        # Sets the gherkin parser cache folder
+        cache:                /var/folders/l0/zqgytzpd10v0bqrvylyzrlkr0000gn/T/behat_gherkin_cache
+
+        # Sets the gherkin filters (overridable by CLI options)
+        filters:
+
+            # Prototype
+            name:                 ~
+    calls:
+
+        # Call executor will catch exceptions matching this level
+        error_reporting:      32767
+    translation:
+
+        # Sets output locale for the tester
+        locale:               es
+
+        # Sets fallback output locale for the tester
+        fallback_locale:      en
+    gherkin_translations:  []
+    testers:
+
+        # Sets the strict mode for result interpretation
+        strict:               false
+
+        # Tells tester to skip all tests
+        skip:                 false
+
+        # Sets the rerun cache path
+        rerun_cache:          /var/folders/l0/zqgytzpd10v0bqrvylyzrlkr0000gn/T/behat_rerun_cache
+    cli:                  []
+    environments:         []
+    specifications:       []
+    filesystem:           []
+    contexts:             []
+    snippets:             []
+    definitions:          []
+    events:               []
+    hooks:                []
+    transformations:      []
+    symfony2:
+        kernel:
+            bootstrap:            app/autoload.php
+            path:                 app/AppKernel.php
+            class:                AppKernel
+            env:                  test
+            debug:                true
+        context:
+            path_suffix:          Features
+            class_suffix:         Features\Context\FeatureContext
+    mink:
+        mink_loader:          null
+        base_url:             null
+        files_path:           null
+        show_auto:            false
+        show_cmd:             null
+        show_tmp_dir:         /var/folders/l0/zqgytzpd10v0bqrvylyzrlkr0000gn/T
+
+        # Defaults to the first non-javascript session if any, or the first session otherwise
+        default_session:      null
+
+        # Defaults to the first javascript session if any
+        javascript_session:   null
+        browser_name:         firefox
+        sessions:             # Required
+
+            # Prototype
+            name:
+                goutte:
+                    server_parameters:
+
+                        # Prototype
+                        key:                  ~
+
+                    # For Goutte 1.x, these are the second argument of the Guzzle3 client constructor.
+                    # For Goutte 2.x, these are the elements passed in the "defaults" key of the Guzzle4 config.
+                    guzzle_parameters:
+
+                        # Prototype
+                        key:                  ~
+                sahi:
+                    sid:                  null
+                    host:                 localhost
+                    port:                 9999
+                    browser:              null
+                    limit:                600
+                selenium:
+                    host:                 127.0.0.1
+                    port:                 4444
+                    browser:              '*%mink.browser_name%'
+                selenium2:
+                    browser:              '%mink.browser_name%'
+                    capabilities:
+                        browserName:          firefox
+                        version:              '21'
+                        platform:             ANY
+                        browserVersion:       '9'
+                        browser:              firefox
+                        ignoreZoomSetting:    'false'
+                        name:                 'Behat feature suite'
+                        deviceOrientation:    portrait
+                        deviceType:           tablet
+                        javascriptEnabled:    ~
+                        databaseEnabled:      ~
+                        locationContextEnabled:  ~
+                        applicationCacheEnabled:  ~
+                        browserConnectionEnabled:  ~
+                        webStorageEnabled:    ~
+                        rotatable:            ~
+                        acceptSslCerts:       ~
+                        nativeEvents:         ~
+                        proxy:
+                            proxyType:            ~
+                            proxyAuthconfigUrl:   ~
+                            ftpProxy:             ~
+                            httpProxy:            ~
+                            sslProxy:             ~
+                        firefox:
+                            profile:              ~
+                            binary:               ~
+                        chrome:
+                            switches:             []
+                            binary:               ~
+                            extensions:           []
+
+                        # Custom capabilities merged with the known ones
+                        extra_capabilities:
+
+                            # Prototype
+                            name:                 ~
+                    wd_host:              'http://localhost:4444/wd/hub'
+                sauce_labs:
+                    username:             false
+                    access_key:           false
+                    connect:              false
+                    browser:              firefox
+                    capabilities:
+                        browserName:          firefox
+                        version:              '21'
+                        platform:             Linux
+                        browserVersion:       '9'
+                        browser:              firefox
+                        ignoreZoomSetting:    'false'
+                        name:                 'Behat feature suite'
+                        deviceOrientation:    portrait
+                        deviceType:           tablet
+                        javascriptEnabled:    ~
+                        databaseEnabled:      ~
+                        locationContextEnabled:  ~
+                        applicationCacheEnabled:  ~
+                        browserConnectionEnabled:  ~
+                        webStorageEnabled:    ~
+                        rotatable:            ~
+                        acceptSslCerts:       ~
+                        nativeEvents:         ~
+                        proxy:
+                            proxyType:            ~
+                            proxyAuthconfigUrl:   ~
+                            ftpProxy:             ~
+                            httpProxy:            ~
+                            sslProxy:             ~
+                        firefox:
+                            profile:              ~
+                            binary:               ~
+                        chrome:
+                            switches:             []
+                            binary:               ~
+                            extensions:           []
+
+                        # Custom capabilities merged with the known ones
+                        extra_capabilities:
+
+                            # Prototype
+                            name:                 ~
+                        selenium-version:     2.31.0
+                        max-duration:         '300'
+                        command-timeout:      ~
+                        idle-timeout:         ~
+
+                        # will be set automatically based on the TRAVIS_BUILD_NUMBER environment variable if available
+                        build:                ~
+                        custom-data:          []
+                        screen-resolution:    ~
+
+                        # will be set automatically based on the TRAVIS_JOB_NUMBER environment variable if available
+                        tunnel-identifier:    ~
+                        prerun:
+                            executable:           ~ # Required
+                            args:                 []
+                            background:           false
+                        record-video:         ~
+                        record-screenshots:   ~
+                        capture-html:         ~
+                        disable-popup-handler:  ~
+                browser_stack:
+                    username:             false
+                    access_key:           false
+                    browser:              firefox
+                    capabilities:
+                        browserName:          firefox
+                        version:              '21'
+                        platform:             ANY
+                        browserVersion:       '9'
+                        browser:              firefox
+                        ignoreZoomSetting:    'false'
+                        name:                 'Behat feature suite'
+                        deviceOrientation:    portrait
+                        deviceType:           tablet
+                        javascriptEnabled:    ~
+                        databaseEnabled:      ~
+                        locationContextEnabled:  ~
+                        applicationCacheEnabled:  ~
+                        browserConnectionEnabled:  ~
+                        webStorageEnabled:    ~
+                        rotatable:            ~
+                        acceptSslCerts:       ~
+                        nativeEvents:         ~
+                        proxy:
+                            proxyType:            ~
+                            proxyAuthconfigUrl:   ~
+                            ftpProxy:             ~
+                            httpProxy:            ~
+                            sslProxy:             ~
+                        firefox:
+                            profile:              ~
+                            binary:               ~
+                        chrome:
+                            switches:             []
+                            binary:               ~
+                            extensions:           []
+
+                        # Custom capabilities merged with the known ones
+                        extra_capabilities:
+
+                            # Prototype
+                            name:                 ~
+                        project:              ~
+                        resolution:           ~
+
+                        # will be set automatically based on the TRAVIS_JOB_NUMBER environment variable if available
+                        build:                ~
+                        os:                   ~
+                        os_version:           ~
+                        device:               ~
+                        browserstack-debug:   ~
+                        browserstack-tunnel:  ~
+                zombie:
+                    host:                 127.0.0.1
+                    port:                 8124
+                    node_bin:             node
+                    server_path:          null
+                    threshold:            2000000
+                    node_modules_path:    ''
+                symfony2:             []
+    emusehtml:
+        name:                 emusehtml
+        renderer:             behat2
+        file_name:            generated
+        print_args:           'false'
+        print_outp:           'false'
+        loop_break:           'false'
+        output:               .
+    jarnaizjunit:
+        filename:             test_report.xml
+        outputDir:            build/tests
+
