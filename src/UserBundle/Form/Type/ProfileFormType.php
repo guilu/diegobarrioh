@@ -23,16 +23,17 @@ class ProfileFormType extends BaseType
         $builder->add('nombre');
         $builder->add('apellidos');
         $builder->add('bio');
+        $builder->add('genero', new GenderType());
         $builder->add(
             'fechaNacimiento',
             'date',
             array(
-                'widget' => 'single_text',
+                'widget' => 'simple_text',
                 'format' => 'yyyy-MM-dd',
                 'required' => false,
-                'empty_value' => null,
             )
         );
+
     }
 
     /**

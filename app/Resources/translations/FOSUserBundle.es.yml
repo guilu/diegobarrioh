@@ -76,6 +76,7 @@ registration:
         primero: contraseña
         confirm: vuelve a escribir la contraseña
     fecha_nacimiento: fecha de nacimiento
+    gender: Eres:
 
 # Password resetting
 resetting:

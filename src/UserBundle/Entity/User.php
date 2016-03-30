@@ -60,18 +60,26 @@ class User extends BaseUser
 
     /**
      *
-     * @var \DateTime
+     * @var \DateTime|null
      * @ORM\Column(name="fechanacimiento", type="date", nullable=true)
      */
     private $fechaNacimiento;
 
+    /**
+     * @var string|null
+     * @ORM\Column(name="genero", type="text", length=1, nullable=true)
+     */
+    private $genero;
 
     /**
+     * @var string|null
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $path;
 
     /**
+     *
+     * @var string|null
      * @Assert\File(
      *     maxSize="3M",
      *     mimeTypes={"image/png", "image/jpeg", "image/pjpeg"}
@@ -228,6 +236,21 @@ class User extends BaseUser
         return $this->fechaNacimiento;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getGenero()
+    {
+        return $this->genero;
+    }
+
+    /**
+     * @param mixed $genero
+     */
+    public function setGenero($genero)
+    {
+        $this->genero = $genero;
+    }
 
     /**
      * @return null|string

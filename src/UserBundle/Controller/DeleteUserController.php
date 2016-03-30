@@ -48,7 +48,7 @@ class DeleteUserController extends Controller
 
         /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
         $userManager = $this->get('fos_user.user_manager');
-        //$userManager->deleteUser($user);
+        $userManager->deleteUser($user);
 
         $url = $this->generateUrl('fos_user_security_logout');
         $response = new RedirectResponse($url);
@@ -58,7 +58,8 @@ class DeleteUserController extends Controller
             new FilterUserResponseEvent($user, $request, $response)
         );
 
-        $this->addFlash("info", "Tu cuenta se ha eliminado correctamente");
+        $this->addFlash("info", "Bye, bye, ".$user->getUsername()."! Tu cuenta se ha eliminado correctamente. ".
+            "Sentimos que tengas que irte. ");
 
         return $response;
     }

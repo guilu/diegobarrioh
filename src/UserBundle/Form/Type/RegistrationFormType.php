@@ -37,6 +37,14 @@ class RegistrationFormType extends BaseType
                 'required' => false
             )
         );
+        $builder->add(
+            'genero',
+            new GenderType(),
+            array(
+                'required' => false
+            )
+        );
+
     }
 
     /**

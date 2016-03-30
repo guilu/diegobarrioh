@@ -33,6 +33,10 @@
                 {{ form_widget(form_register.apellidos, {'attr':{'placeholder': 'registration.apellidos'|trans}}) }}
             </div>
             <div class="form-group">
+                {{ form_label(form_register.genero,'registration.gender'|trans({},'forms')) }}
+                {{ form_widget(form_register.genero) }}
+            </div>
+            <div class="form-group">
                 {{ form_label(form_register.fechaNacimiento,'registration.fecha_nacimiento'|trans) }}
                 {{ form_widget(form_register.fechaNacimiento) }}
             </div>

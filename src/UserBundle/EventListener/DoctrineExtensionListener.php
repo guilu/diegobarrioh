@@ -44,20 +44,20 @@ class DoctrineExtensionListener implements ContainerAwareInterface
     /**
      * {@inheritdoc}
      */
-    public function onKernelRequest(GetResponseEvent $event)
+    public function onKernelRequest()
     {
 
-        $token_storage = $this->container->get('security.token_storage');
-        $authorization_checker = $this->container->get(
+        $tokenStorage = $this->container->get('security.token_storage');
+        $authorizationChecker = $this->container->get(
             'security.authorization_checker',
             ContainerInterface::NULL_ON_INVALID_REFERENCE
         );
-        if (null !== $token_storage &&
-            null !== $token_storage->getToken() &&
-            $authorization_checker->isGranted('IS_AUTHENTICATED_REMEMBERED')
+        if (null !== $tokenStorage &&
+            null !== $tokenStorage->getToken() &&
+            $authorizationChecker->isGranted('IS_AUTHENTICATED_REMEMBERED')
         ) {
             $loggable = $this->container->get('gedmo.listener.loggable');
-            $loggable->setUsername($token_storage->getToken()->getUsername());
+            $loggable->setUsername($tokenStorage->getToken()->getUsername());
         }
     }
 }
