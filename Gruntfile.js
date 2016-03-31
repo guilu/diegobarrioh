@@ -13,20 +13,27 @@ module.exports = function (grunt) {
         'css/font-awesome.css': 'font-awesome/css/font-awesome.css'
     };
     bowerCssMinFiles = {
-        'css/bootstrap.min.css': 'bootstrap/dist/css/bootstrap.min.css',
+        //'css/bootstrap.min.css': 'bootstrap/dist/css/bootstrap.min.css',
+        'css/bootstrap.min.css': 'bootswatch-dist/css/bootstrap.min.css',
         'css/font-awesome.min.css': 'font-awesome/css/font-awesome.min.css'
     };
     bowerJsFiles = {
         'js/plugins/jquery.js': 'jquery/dist/jquery.js',
-        'js/plugins/bootstrap.js': 'bootstrap/dist/js/bootstrap.js'
+        'js/plugins/bootstrap.js': 'bootswatch-dist/js/bootstrap.js'
+        //'js/plugins/bootstrap.js': 'bootstrap/dist/js/bootstrap.js'
     };
     bowerJsMinFiles = {
         'js/plugins/jquery.min.js': 'jquery/dist/jquery.min.js',
-        'js/plugins/bootstrap.min.js': 'bootstrap/dist/js/bootstrap.min.js'
+        //'js/plugins/bootstrap.min.js': 'bootstrap/dist/js/bootstrap.min.js'
+        'js/plugins/bootstrap.min.js': 'bootswatch-dist/js/bootstrap.min.js'
     };
 
     bowerFontFiles = {
-        'fonts': ['font-awesome/fonts','bootstrap/fonts']
+        'fonts': [
+            'font-awesome/fonts',
+            //'bootstrap/fonts',
+            'bootswatch-dist/fonts'
+        ]
     };
 
     grunt.initConfig({

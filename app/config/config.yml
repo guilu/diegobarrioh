@@ -35,7 +35,7 @@ twig:
     form_themes:
         # Bootstrap:
         - 'bootstrap_3_layout.html.twig'
-        - 'UserBundle:Form/fields.html.twig'
+        - 'UserBundle:Form/gender_fields.html.twig'
 
 # Assetic Configuration
 assetic:

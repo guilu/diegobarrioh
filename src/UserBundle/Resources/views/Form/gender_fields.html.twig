@@ -4,7 +4,7 @@
             <ul {{ block('widget_container_attributes') }} class="list-unstyled list-inline">
             {% for child in form %}
                 <li>
-                    {{ form_widget(child) }}
+                    <i class="fa fa-{{ form_label(child) }}"></i>{{ form_widget(child) }}
                     {{ form_label(child) }}
                 </li>
             {% endfor %}
