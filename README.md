@@ -1,4 +1,4 @@
-diegobarrioh.dev
-================
+diegobarrioh v0.5
+=================
 
-A Symfony project created on March 18, 2016, 8:25 am.
+A symfony 2.7 project integratin fos_userbundle, with all the best practices and with tdd and bdd.
