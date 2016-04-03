@@ -7,9 +7,9 @@ module.exports = function (grunt) {
     appResourceSassDir = {
         'scss': 'app/Resources/assets/scss/**/*.scss'
     };
-
     bowerCssFiles = {
-        'css/bootstrap.css': 'bootstrap/dist/css/bootstrap.css',
+        //'css/bootstrap.css': 'bootstrap/dist/css/bootstrap.css',
+        'css/bootstrap.css': 'bootswatch-dist/css/bootstrap.css',
         'css/font-awesome.css': 'font-awesome/css/font-awesome.css'
     };
     bowerCssMinFiles = {
@@ -19,15 +19,14 @@ module.exports = function (grunt) {
     };
     bowerJsFiles = {
         'js/plugins/jquery.js': 'jquery/dist/jquery.js',
-        'js/plugins/bootstrap.js': 'bootswatch-dist/js/bootstrap.js'
         //'js/plugins/bootstrap.js': 'bootstrap/dist/js/bootstrap.js'
+        'js/plugins/bootstrap.js': 'bootswatch-dist/js/bootstrap.js'
     };
     bowerJsMinFiles = {
         'js/plugins/jquery.min.js': 'jquery/dist/jquery.min.js',
         //'js/plugins/bootstrap.min.js': 'bootstrap/dist/js/bootstrap.min.js'
         'js/plugins/bootstrap.min.js': 'bootswatch-dist/js/bootstrap.min.js'
     };
-
     bowerFontFiles = {
         'fonts': [
             'font-awesome/fonts',
