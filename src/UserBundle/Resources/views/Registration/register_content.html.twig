@@ -1,0 +1,47 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+        <h1>{{ 'security.registration.registro'|trans }} <small>{{ 'security.registration.if_new'|trans }}</small></h1>
+
+        <form action="{{ path('fos_user_registration_register') }}" method="POST">
+             <div class="form-group">
+                 {{ form_label(form_register.email,'registration.email_text'|trans ) }}
+                 {{ form_widget(form_register.email, {'attr':{'placeholder': 'registration.email_text'|trans }}) }}
+                 {{ form_errors(form_register.email) }}
+            </div>
+            <div class="form-group">
+                 {{ form_label(form_register.username,'security.login.username'|trans) }}
+                 {{ form_widget(form_register.username, {'attr':{'placeholder': 'security.login.username'|trans }}) }}
+                {{ form_errors(form_register.username) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form_register.plainPassword.first,'registration.password.primero'|trans) }}
+                {{ form_widget(form_register.plainPassword.first, {'attr':{'placeholder': 'registration.password.primero'|trans }}) }}
+                {{ form_errors(form_register.plainPassword.first) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form_register.plainPassword.second, 'registration.password.confirm'|trans ) }}
+                {{ form_widget(form_register.plainPassword.second, {'attr':{'placeholder': 'registration.password.confirm'|trans }}) }}
+                {{ form_errors(form_register.plainPassword.second) }}
+            </div>
+            <hr/>
+            <div class="form-group">
+                {{ form_label(form_register.nombre,'registration.nombre'|trans) }}
+                {{ form_widget(form_register.nombre, {'attr':{'placeholder': 'registration.nombre'|trans}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form_register.apellidos, 'registration.apellidos'|trans) }}
+                {{ form_widget(form_register.apellidos, {'attr':{'placeholder': 'registration.apellidos'|trans}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form_register.genero,'registration.gender'|trans({},'forms')) }}
+                {{ form_widget(form_register.genero) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form_register.fechaNacimiento,'registration.fecha_nacimiento'|trans) }}
+                {{ form_widget(form_register.fechaNacimiento) }}
+            </div>
+            <div class="form-group pull-right">
+                <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-primary"/>
+            </div>
+            {{ form_end(form_register) }}
+        </form>

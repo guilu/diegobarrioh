@@ -1,0 +1,65 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
+            {{ form_label(form.imagen) }}:
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <div class="form-group">
+                        <img id="imagen_usuario" class="img-responsive img-thumbnail" src="{{ asset_exists(app.user.getWebPath) ? app.user.getWebPath : 'http://placehold.it/200x200/09f/fff.png' }}" alt="Tu imagen de perfil"/>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                    <div class="form-group">
+                    {{ form_widget(form.imagen) }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.username) }}
+                {{ form_widget(form.username) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email) }}
+            </div>
+            <hr>
+            <div class="form-group">
+                {{ form_label(form.nombre) }}
+                {{ form_widget(form.nombre) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.apellidos) }}
+                {{ form_widget(form.apellidos) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.bio) }}
+                {{ form_widget(form.bio) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.fechaNacimiento) }}
+                {{ form_widget(form.fechaNacimiento) }}
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <a href="{{ path("homepage") }}" class="btn btn-default">volver al inicio</a>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="form-inline" style="margin-bottom:20px;text-align: right">
+                         <div class="form-group">
+                             {{ form_label(form.current_password) }}
+                             {{ form_widget(form.current_password, { 'attr': {'placeholder': 'password'}}) }}
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="{{ 'profile.edit.submit'|trans }}" class="btn btn-primary btn-block"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ form_rest(form) }}
+</form>

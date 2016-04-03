@@ -1,0 +1,17 @@
+{% block gender_widget %}
+    {% spaceless %}
+        {% if expanded %}
+            <ul {{ block('widget_container_attributes') }} class="list-unstyled list-inline">
+            {% for child in form %}
+                <li>
+                    <i class="fa fa-{{ form_label(child) }}"></i>{{ form_widget(child) }}
+                    {{ form_label(child) }}
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            {# just let the choice widget render the select tag #}
+            {{ block('choice_widget') }}
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}

@@ -1,0 +1,35 @@
+{
+  "name": "diegobarrioh",
+  "version": "0.0.1",
+  "authors": [
+    "Diego Barrio H <diegobarrioh@gmail.com>"
+  ],
+  "description": "Mi web personal, básicamente mi CV.",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "diego",
+    "barrio",
+    "curriculum",
+    "cv"
+  ],
+  "license": "MIT",
+  "homepage": "http://diegobarrioh.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.*",
+    "font-awesome": "4.5.*",
+    "jquery": "1.11.*"
+  }
+
+}

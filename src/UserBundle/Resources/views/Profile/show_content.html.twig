@@ -1,0 +1,47 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <img src="{{ asset_exists(user.getWebPath) ? user.getWebPath : 'http://placehold.it/200x200/09f/fff.png' }}" alt="Tu imagen de perfil" class="img-thumbnail"/>
+            <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+            <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+            <p>Nombre: {{ user.nombre }}</p>
+            <p>Apellidos: {{ user.apellidos }}</p>
+            <p>Genero: {{ user.genero }}</p>
+            <p>Fecha Nacimiento: {{ user.fechaNacimiento is empty ? "" : user.fechaNacimiento|date("d/m/Y") }}</p>
+            <p>Bio: {{ user.bio }}</p>
+            <ul class="list-unstyled list-inline">
+                <li>
+                    <a href="{{ path('fos_user_profile_edit') }}" class="btn btn-primary">Editar perfil</a>
+                </li>
+                <li>
+                    <a href="{{ path('homepage') }}" class="btn btn-default">volver al inicio</a>
+                </li>
+                <li>
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirm">
+                        Eliminar mi cuenta
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+     <!-- Modal Confirmar eliminación de la cuenta -->
+    <div class="modal fade" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content panel-danger">
+          <div class="modal-header panel-heading">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">¿¿Estas seguro??</h4>
+          </div>
+          <div class="modal-body">
+            Esta acción no tiene marcha atras, una vez eliminada tu cuenta se borrarán todos tus datos de la base de datos y no se podrán recuperar...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">¡No, Sácame de aquí!</button>
+            <a href="{{ path('fos_user_delete') }}" class="btn btn-danger btn-lg">¡Sí, estoy de acuerdo!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+

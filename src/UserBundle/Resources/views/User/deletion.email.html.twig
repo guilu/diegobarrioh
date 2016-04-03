@@ -1,0 +1,28 @@
+{% block subject %}So bye, bye, Miss American Pie Drove my Chevy to the levee but the levee was dry...{% endblock %}
+
+{% block body_text %}
+    {% autoescape false %}
+        Bye Bye {{ user.username }} !
+
+        I hate that you have to go...
+
+        Please feel free to return whenever you want!
+
+        Greetings, the team
+    {% endautoescape %}
+{% endblock %}
+
+{% block body_html %}
+    {% autoescape false %}
+        <h1>Bye Bye {{ user.username }}!</h1>
+        <p>
+        I hate that you have to go...
+
+        Please feel free to return whenever you want!
+        </p>
+        <p>
+        Greetings from the team!
+        </p>
+    {% endautoescape %}
+
+{% endblock %}
