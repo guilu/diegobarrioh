@@ -4,7 +4,7 @@ parameters:
 services:
     user.profile.form.type:
         class: UserBundle\Form\Type\ProfileFormType
-        arguments: [%fos_user.model.user.class%]
+        arguments: ['%fos_user.model.user.class%']
         tags:
             - { name: form.type, alias: user_profile}
 
@@ -15,13 +15,13 @@ services:
 
     user.password_resetting:
         class: UserBundle\EventListener\EditProfileListener
-        arguments: [@router]
+        arguments: ['@router']
         tags:
             - { name: kernel.event_subscriber }
 
     twig.asset_exists_extension:
         class: UserBundle\Twig\AssetExistsExtension
-        arguments: [@kernel]
+        arguments: ['@kernel']
         tags:
             - { name: twig.extension }
 
@@ -29,9 +29,9 @@ services:
         class: UserBundle\Mailer\Mailer
         public: false
         arguments:
-            - @mailer
-            - @router
-            - @twig
+            - '@mailer'
+            - '@router'
+            - '@twig'
             -
                 template:
                     deletion: %deletion.email.template%
@@ -40,7 +40,7 @@ services:
 
     app.delete_user_listener:
         class: UserBundle\EventListener\DeleteUserListener
-        arguments: [@app.mailer, @router, @session]
+        arguments: ['@app.mailer', '@router', '@session']
         tags:
             - { name: 'kernel.event_subscriber' }
 

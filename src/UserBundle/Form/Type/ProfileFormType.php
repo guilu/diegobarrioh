@@ -28,7 +28,7 @@ class ProfileFormType extends BaseType
             'fechaNacimiento',
             'date',
             array(
-                'widget' => 'simple_text',
+                'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
                 'required' => false,
             )
